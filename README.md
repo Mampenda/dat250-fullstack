@@ -109,3 +109,4 @@ After this, I ran the project with the following commands to test, run, and crea
 ```
 
 ## Step 3: Create GitHub Action (workflow)
+For generating the workflow, I created a new file called `.github/workflow` in the root directory. 
