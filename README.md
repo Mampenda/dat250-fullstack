@@ -2,7 +2,7 @@
 For my final project in Advanced Software Technologies, I am to create a fullstack project for an application that
 has user-created polls that other registered users can vote on. 
 
-## Step 1: Software Set-Up
+## Step 1: Setting Up the Project
 I made sure that I had `sdkman`, `java`, and `gradle` installed (update them to their latest versions if needed). 
 ```
 $ sdk version
@@ -48,7 +48,7 @@ $ git -v
 git version 2.46.0.windows.1
 ```
 
-## Step 2: Initialize Spring Boot Project
+### Initialize Spring Boot Project
 I went to the [Spring Boot Initializer](https://start.spring.io/) to create a new project with the following metadata 
 and dependencies: 
 
@@ -108,11 +108,28 @@ After this, I ran the project with the following commands to test, run, and crea
 ./gradlew bootJar
 ```
 
-## Step 3: Create GitHub Action (workflow)
+### Create GitHub Action (workflow)
 For generating the workflow, I created a new file called `.github/workflows` in the root directory and added a file 
 called `build.yml` in it. 
 
-## Step 4: Add Simple Web Server Handler
+### Add Simple Web Server Handler
 In the `FullstackDemoApplication.java`-class, I added a simple web server handler by following [this](https://spring.io/quickstart) 
 QuickStart tutorial. Now, when we run the program and go to `http://localhost:8080/hello`, we are greeted by a message, 
 and if we go to `http://localhost:8080/hello?name=Alice`, then "Alice" is greeted by a personal message. 
+
+## Step 2: Implement Simple REST API
+### H2 Database Set-Up
+
+Added the `H2` dependency by adding `runtimeOnly("com.h2database:h2")` and `
+implementation("org.springframework.boot:spring-boot-starter-data-jpa")` to the `build.gradle.kts` file, and modified 
+`applications.properties` by adding the lines 
+
+```  
+spring.h2.console.enabled=true
+spring.datasource.url=jdbc:h2:mem:fullstack_demo;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=admin
+spring.datasource.password=admin
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+```
+### Model Class
