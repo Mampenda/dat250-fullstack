@@ -1,5 +1,5 @@
 name: Build
-run-name: ${{ github.actor }} is build.
+run-name: Build Gradle Project on Push and Pull.
 
 on:
   push:
