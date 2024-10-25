@@ -94,7 +94,7 @@ From `build.gradle.kts` I commented out
 - Spring Data Reactive MongoDB
 
 From the `FullstackDemoApplicationTests.java`-file I commented out the line
-`//@Import(TestcontainersConfiguration.class)`
+`@Import(TestcontainersConfiguration.class)`
 
 And I commented out everything from 
 - `compose.yaml`
