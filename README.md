@@ -43,3 +43,64 @@ Launcher JVM:  21.0.5 (Eclipse Adoptium 21.0.5+11-LTS)
 Daemon JVM:    C:\Users\amali\.sdkman\candidates\java\21.0.5-tem (no JDK specified, using current Java home)
 OS:            Windows 11 10.0 amd64
 ```
+``` 
+$ git -v
+git version 2.46.0.windows.1
+```
+
+## Step 2: Initialize Spring Boot Project
+I went to the [Spring Boot Initializer](https://start.spring.io/) to create a new project with the following metadata 
+and dependencies: 
+
+> Project: Gradle-Kotlin
+> Language: Java
+> Spring Boot: 3.3.5
+> Project Metadata:
+> - Group: dat250
+> - Artifact/Name: fullstack-demo
+> - Packaging: Jar
+> - Java: 21
+
+> Dependencies: 
+> - Spring Web
+> - Lombok
+> - Spring Boot DevTools
+> - Spring for RabbitMQ
+> - Spring Data JPA
+> - Spring Data MongoDB
+> - Spring Data Reactive MongoDB
+> - Docker Compose Support
+> - Testcontainers
+> - H2 Database
+> - PostgreSQL Driver
+> - Spring Data MongoDB
+> - Spring Data Reactive MongoDB
+
+Once I unzipped the project and opened it in `IntelliJ`, I commented out the following files and code because I do not 
+need them at this point: 
+> From `build.gradle.kts` I commented out
+> - Spring for RabbitMQ
+> - Spring Data JPA
+> - Spring Data MongoDB
+> - Spring Data Reactive MongoDB
+> - Docker Compose Support
+> - Testcontainers
+> - H2 Database
+> - PostgreSQL Driver
+> - Spring Data MongoDB
+> - Spring Data Reactive MongoDB
+
+> From the `FullstackDemoApplicationTests.java`-file I commented out 
+> //@Import(TestcontainersConfiguration.class)
+
+> And I commented out everything from 
+> compose.yaml
+> TestFullstackDemoApplication.java
+> TestcontainersConfiguration.java
+
+After this, I ran the project with the following commands to test, run, and create a `.jar`-file for the application:
+``` 
+./gradlew test 
+./gradlew bootRun # Check that its running in http://localhost:8080
+./gradlew bootJar
+```
