@@ -22,7 +22,7 @@ jobs:
       contents: read
 
     steps:
-      -
+
       - name: Checkout branch
         uses: actions/checkout@v4
 
