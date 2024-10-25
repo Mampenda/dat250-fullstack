@@ -125,11 +125,19 @@ implementation("org.springframework.boot:spring-boot-starter-data-jpa")` to the 
 `applications.properties` by adding the lines 
 
 ```  
+spring.application.name=fullstack-demo
+
 spring.h2.console.enabled=true
-spring.datasource.url=jdbc:h2:mem:fullstack_demo;DB_CLOSE_ON_EXIT=FALSE
-spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.url=jdbc:h2:mem:fullstack_demo_db;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.driver-class-name=org.h2.Driver
 spring.datasource.username=admin
 spring.datasource.password=admin
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 ```
-### Model Class
+#### Create Classes and Interfaces
+In this step I created the directories and classes/interfaces for the User()- and Poll()-class. Before running the 
+application, I opened command prompt as admin and ran the command touch `fullstack_demo_db.mv.db` to create a database 
+file for H2. 
+
+After which I ran the application from console with `./gradlew bootRun` and opened `localhost:8080/h2-console` in the
+browser where I logged in with the username and password "admin". 
