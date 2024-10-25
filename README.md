@@ -109,4 +109,10 @@ After this, I ran the project with the following commands to test, run, and crea
 ```
 
 ## Step 3: Create GitHub Action (workflow)
-For generating the workflow, I created a new file called `.github/workflow` in the root directory. 
+For generating the workflow, I created a new file called `.github/workflows` in the root directory and added a file 
+called `build.yml` in it. 
+
+## Step 4: Add Simple Web Server Handler
+In the `FullstackDemoApplication.java`-class, I added a simple web server handler by following [this](https://spring.io/quickstart) 
+QuickStart tutorial. Now, when we run the program and go to `http://localhost:8080/hello`, we are greeted by a message, 
+and if we go to `http://localhost:8080/hello?name=Alice`, then "Alice" is greeted by a personal message. 
